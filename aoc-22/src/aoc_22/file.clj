@@ -1,0 +1,19 @@
+(ns aoc-22.file
+  (:require [clojure.java.io :as io]))
+
+(defn- lazy-load-resource-seq
+  [reader]
+  (lazy-seq
+   (if-let [line (.readLine reader)]
+     (cons line (lazy-load-resource-seq reader))
+     (do
+       (.close reader)
+       nil))))
+
+(defn lazy-load-resource
+  [resource-path]
+  (->> resource-path
+       io/resource
+       io/file
+       io/reader
+       lazy-load-resource-seq))
