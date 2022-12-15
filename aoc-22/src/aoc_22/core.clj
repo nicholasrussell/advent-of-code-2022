@@ -1,7 +1,8 @@
 (ns aoc-22.core
   (:require [aoc-22.day01]
             [aoc-22.day02]
-            [aoc-22.day03]))
+            [aoc-22.day03]
+            [aoc-22.day04]))
 
 (defn- exec-day
   [day part]
