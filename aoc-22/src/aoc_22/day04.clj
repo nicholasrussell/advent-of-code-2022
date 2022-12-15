@@ -4,6 +4,7 @@
             [aoc-22.file :as file]))
 
 ;; Part 1: 534
+;; Part 2: 841
 
 (defn section-assignments
   [line]
@@ -13,20 +14,28 @@
           (let [splits (string/split assignment #"-")]
             (range (Integer/parseInt (first splits)) (+ (Integer/parseInt (second splits)) 1)))))))
 
-(defn is-full-coverage-assignment?
+(defn full-coverage-assignment?
   [assignments]
   (let [set-assignments (map set assignments)
         union (apply sets/union set-assignments)]
     (some (partial = union) set-assignments)))
 
+(defn overlapping-assignment?
+  [assignments]
+  (> (count (apply sets/intersection (map set assignments))) 0))
+
 (defn solve
   [lines]
-  (reduce + 0 (map #(if (is-full-coverage-assignment? (section-assignments %)) 1 0) lines)))
+  (reduce + 0 (map #(if (full-coverage-assignment? (section-assignments %)) 1 0) lines)))
+
+(defn solve2
+  [lines]
+  (reduce + 0 (map #(if (overlapping-assignment? (section-assignments %)) 1 0) lines)))
 
 (defn -main
   [& args]
   (let [part (first args)
         lines (file/lazy-load-resource "day04/input")]
     (if (= part 2)
-      (println "TODO")
+      (println (solve2 lines))
       (println (solve lines)))))
