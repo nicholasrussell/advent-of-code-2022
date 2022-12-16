@@ -11,9 +11,11 @@
        nil))))
 
 (defn lazy-load-resource
-  [resource-path]
-  (->> resource-path
-       io/resource
-       io/file
-       io/reader
-       lazy-load-resource-seq))
+  ([resource-path]
+   (lazy-load-resource lazy-load-resource-seq))
+  ([resource-path reader-fn]
+   (->> resource-path
+        io/resource
+        io/file
+        io/reader
+        reader-fn)))

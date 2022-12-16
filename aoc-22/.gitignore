@@ -10,3 +10,5 @@ pom.xml.asc
 /.nrepl-port
 /.prepl-port
 *~
+.clj-kondo
+.lsp
