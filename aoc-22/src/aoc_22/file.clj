@@ -12,7 +12,7 @@
 
 (defn lazy-load-resource
   ([resource-path]
-   (lazy-load-resource lazy-load-resource-seq))
+   (lazy-load-resource resource-path lazy-load-resource-seq))
   ([resource-path reader-fn]
    (->> resource-path
         io/resource
