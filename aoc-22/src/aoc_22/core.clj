@@ -7,7 +7,8 @@
             [aoc-22.day06]
             [aoc-22.day07]
             [aoc-22.day08]
-            [aoc-22.day09]))
+            [aoc-22.day09]
+            [aoc-22.day10]))
 
 (defn- exec-day
   [day part]
