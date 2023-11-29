@@ -7,7 +7,6 @@
 1. [Install Clojure](https://clojure.org/guides/install_clojure)
 
 ### Verify Setup
-To run the days' programs,
 1. `cd example`
 1. `clj -M -m main`
 1. Verify you see the timestamp with "You did it!"
