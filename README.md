@@ -1,5 +1,3 @@
-# Advent of Code
+# Advent of Code 2022
 
-[2023](2023/)
-
-[2022](2022/)
+[Advent of Code 2022](https://adventofcode.com/2022/)
